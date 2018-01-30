@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.8 $
+% $ biblatex bbl format version 2.9 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,7 +16,114 @@
   {}
 \endgroup
 
-\sortlist[entry]{nty/global/}
+\datalist[entry]{nty/global//global/global}
+  \entry{DBLP:journals/corr/ChoMGBSB14}{article}{}
+    \name{author}{6}{}{%
+      {{hash=CK}{%
+         family={Cho},
+         familyi={C\bibinitperiod},
+         given={Kyunghyun},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=vMB}{%
+         prefix={van},
+         prefixi={v\bibinitperiod},
+         family={Merrienboer},
+         familyi={M\bibinitperiod},
+         given={Bart},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={G{\"{u}}l{\c{c}}ehre},
+         familyi={G\bibinitperiod},
+         given={{\c{C}}aglar},
+         giveni={{\c{C}}\bibinitperiod},
+      }}%
+      {{hash=BF}{%
+         family={Bougares},
+         familyi={B\bibinitperiod},
+         given={Fethi},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Schwenk},
+         familyi={S\bibinitperiod},
+         given={Holger},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={Yoshua},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CK+1}
+    \strng{fullhash}{CKMBvGCBFSHBY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{eprint}
+    \verb 1406.1078
+    \endverb
+    \field{title}{Learning Phrase Representations using {RNN} Encoder-Decoder
+  for Statistical Machine Translation}
+    \verb{url}
+    \verb http://arxiv.org/abs/1406.1078
+    \endverb
+    \field{volume}{abs/1406.1078}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Gers:2003:LPT:944919.944925}{article}{}
+    \name{author}{3}{}{%
+      {{hash=GFA}{%
+         family={Gers},
+         familyi={G\bibinitperiod},
+         given={Felix\bibnamedelima A.},
+         giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=SNN}{%
+         family={Schraudolph},
+         familyi={S\bibinitperiod},
+         given={Nicol\bibnamedelima N.},
+         giveni={N\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Schmidhuber},
+         familyi={S\bibinitperiod},
+         given={J\"{u}rgen},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JMLR.org}%
+    }
+    \keyw{long short-term memory, recurrent neural networks, timing}
+    \strng{namehash}{GFASNNSJ1}
+    \strng{fullhash}{GFASNNSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{doi}
+    \verb 10.1162/153244303768966139
+    \endverb
+    \field{issn}{1532-4435}
+    \field{pages}{115\bibrangedash 143}
+    \field{title}{Learning Precise Timing with Lstm Recurrent Networks}
+    \verb{url}
+    \verb https://doi.org/10.1162/153244303768966139
+    \endverb
+    \field{volume}{3}
+    \field{journaltitle}{J. Mach. Learn. Res.}
+    \field{month}{03}
+    \field{year}{2003}
+  \endentry
+
   \entry{Goodfellow-et-al-2016}{book}{}
     \name{author}{3}{}{%
       {{hash=GI}{%
@@ -132,5 +239,41 @@
     \field{month}{12}
     \field{year}{1997}
   \endentry
-\endsortlist
+
+  \entry{HutHooLey14}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HF}{%
+         family={Hutter},
+         familyi={H\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hoos},
+         familyi={H\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LBK}{%
+         family={Leyton-Brown},
+         familyi={L\bibinitperiod-B\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HFHHLBK1}
+    \strng{fullhash}{HFHHLBK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Proceedings of International Conference on Machine
+  Learning 2014 (ICML 2014)}
+    \field{pages}{754–762}
+    \field{title}{An Efficient Approach for Assessing Hyperparameter
+  Importance}
+    \field{month}{06}
+    \field{year}{2014}
+  \endentry
+\enddatalist
 \endinput

@@ -105,7 +105,57 @@
 \begin{itemize}
 	\item Each gate is computed in terms of the current input, the previous output, a peephole connection to the previous cell state and a bias
 	\item \(i^t\), \(f^t\) and \(o^t\) are called the input, forget and output gates and their role is to determine how much information flows from previous and current timesteps. This effect is achieved by squashing the gates through a sigmoid function. Then an element wise multiplication is performed such that the input gate determines how much of the current information is used, the forget gate deals with the information flow from the previous cell state and finally, the output gate specifies how much information to send to the output \(y\)
-	\item The peephole connections were added such that the network can learn precise timings easier
+	\item The peephole connections were added such that the network can learn precise timings easier \footcite{Gers:2003:LPT:944919.944925}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Evaluation Setup}
+\begin{itemize}
+	\item The vanilla LSTM is used as a baseline and evaluated together with eight of its variants
+	\item Random search was used to obtain good-performing hyperparameters
+	\item Three datasets were used to evaluate the performance
+	\begin{itemize}
+		\item The TIMIT Speech corpus
+		\item The IAM Online Handwriting Database
+		\item JSB Chorales
+	\end{itemize}
+	\item The interaction between hyperparameters was observed using the fANOVA framework\footcite{HutHooLey14}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{LSTM Variants}
+\begin{itemize}
+	\item \textbf{NIG:} No Input Gate: \(i^t = 1\)
+	\item \textbf{NFG:} No Forget Gate: \(f^t = 1\)
+	\item \textbf{NOG:} No Output Gate: \(o^t = 1\)
+	\item \textbf{NIAF:} No Input Activation Function: \(g(x) = x\)
+	\item \textbf{NOAF:} No Output Activation Function: \(h(x) = x\)
+	\item \textbf{CIFG:} Coupled Input and Forget Gate: \(f^t = 1 - i^t\)
+	\item \textbf{NP:} No Peepholes:
+	\begin{align*}
+		&\bar{i}^t = W_i x^t + R_i y^{t-1} + b_i& \\
+		&\bar{f}^t = W_f x^t + R_f y^{t-1} + b_f& \\
+		&\bar{o}^t = W_o x^t + R_o y^{t-1} + b_o& \\
+	\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{LSTM Variants}
+\begin{itemize}
+	\item \textbf{FGR:} Full Gate Recurrence:
+	\begin{align*}
+		\bar{i}^t = &W_i x^t + R_i y^{t-1} + p_i \odot c^{t-1} + b_i \\
+					&+ R_{ii} i^{t-1} + R_{fi} f^{t-1} + R_{oi} o^{t-1} \\
+		\bar{f}^t = &W_f x^t + R_f y^{t-1} + p_f \odot c^{t-1} + b_f \\
+					&+ R_{if} i^{t-1} + R_{ff} f^{t-1} + R_{of} o^{t-1} \\
+		\bar{o}^t = &W_o x^t + R_o y^{t-1} + p_o \odot c^{t-1} + b_o \\
+					&+ R_{io} i^{t-1} + R_{fo} f^{t-1} + R_{oo} o^{t-1}
+	\end{align*}
+	\item The CIFG variant is also known as Gated Recurrent Unit (GRU) \footcite{DBLP:journals/corr/ChoMGBSB14}
+	\item The FGR variant adds recurrent connections between all the gates, thus significantly increasing the number of parameters
 \end{itemize}
 \end{frame}
 
