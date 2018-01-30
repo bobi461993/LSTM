@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.9 $
+% $ biblatex bbl format version 2.8 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,7 +16,7 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global}
+\sortlist[entry]{nty/global/}
   \entry{Goodfellow-et-al-2016}{book}{}
     \name{author}{3}{}{%
       {{hash=GI}{%
@@ -51,5 +51,86 @@
     \field{title}{Deep Learning}
     \field{year}{2016}
   \endentry
-\enddatalist
+
+  \entry{DBLP:journals/corr/GreffSKSS15}{article}{}
+    \name{author}{5}{}{%
+      {{hash=GK}{%
+         family={Greff},
+         familyi={G\bibinitperiod},
+         given={Klaus},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=SRK}{%
+         family={Srivastava},
+         familyi={S\bibinitperiod},
+         given={Rupesh\bibnamedelima Kumar},
+         giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=KJ}{%
+         family={Koutn{\'{\i}}k},
+         familyi={K\bibinitperiod},
+         given={Jan},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SBR}{%
+         family={Steunebrink},
+         familyi={S\bibinitperiod},
+         given={Bas\bibnamedelima R.},
+         giveni={B\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Schmidhuber},
+         familyi={S\bibinitperiod},
+         given={J{\"{u}}rgen},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GK+1}
+    \strng{fullhash}{GKSRKKJSBRSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \verb{eprint}
+    \verb 1503.04069
+    \endverb
+    \field{title}{{LSTM:} {A} Search Space Odyssey}
+    \verb{url}
+    \verb http://arxiv.org/abs/1503.04069
+    \endverb
+    \field{volume}{abs/1503.04069}
+    \field{journaltitle}{CoRR}
+    \field{eprinttype}{arXiv}
+    \field{year}{2015}
+  \endentry
+
+  \entry{lstm}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HS}{%
+         family={Hochreiter},
+         familyi={H\bibinitperiod},
+         given={Sepp},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Schmidhuber},
+         familyi={S\bibinitperiod},
+         given={J{\"{u}}rgen},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HSSJ1}
+    \strng{fullhash}{HSSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Neural computation}
+    \field{pages}{1735\bibrangedash 80}
+    \field{title}{Long Short-term Memory}
+    \field{volume}{9}
+    \field{month}{12}
+    \field{year}{1997}
+  \endentry
+\endsortlist
 \endinput
