@@ -12,6 +12,7 @@
 \usepackage{multicol}
 \bibliography{bibliography.bib}
 \usepackage[noend]{algorithm,algpseudocode}
+\usepackage[justification=centering]{caption}
 
 
 \title[LSTM: A Search Space Odysseys]{LSTM: A Search Space Odysseys}
@@ -42,10 +43,8 @@
 \begin{frame}
 \frametitle{Recurrent Neural Networks Unrolled}
 \begin{figure}
-	\subcapcentertrue
-    \centering
-    	\subfigure[RNN unrolled \footcite{Goodfellow-et-al-2016}] 
-        {\includegraphics[width=0.7\textwidth]{rnn_unrolled.png}}
+        {\includegraphics[width=0.65\textwidth]{rnn_unrolled.png}}
+        \caption{RNN unrolled \footcite{Goodfellow-et-al-2016}}
     \end{figure}
 \end{frame}
 
@@ -74,10 +73,8 @@
 \begin{frame}
 \frametitle{LSTM Cell}
 \begin{figure}
-	\subcapcentertrue
-    \centering
-    	\subfigure[LSTM cell] 
         {\includegraphics[width=0.9\textwidth]{lstm_cell.png}}
+        \caption{LSTM cell} 
     \end{figure}
 \end{frame}
 
@@ -156,6 +153,90 @@
 	\end{align*}
 	\item The CIFG variant is also known as Gated Recurrent Unit (GRU) \footcite{DBLP:journals/corr/ChoMGBSB14}
 	\item The FGR variant adds recurrent connections between all the gates, thus significantly increasing the number of parameters
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\begin{itemize}
+	\item Figure 3 represents the test set performance for all 200 trials (top) and for the best 10\% (bottom) trials (according to the validation set) for each data set and variant.
+Boxes: range between the 25th and 75th percentiles of the data. Whiskers: whole range. Red dot: mean. Red line: median of the data. Thick blue lines: boxes
+of variants that differ significantly from the vanilla LSTM. Gray histogram in the background: average number of parameters for the top 10\% performers of
+every variant.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Results}
+\begin{figure}
+        {\includegraphics[width=0.8\textwidth]{results.png}}
+        \caption{Box plots for the test performance}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Observations}
+\begin{itemize}
+	\item Removing the output activation function (NOAF) or the forget gate (NFG) significantly hurt performance on all three data sets
+	\item Input and forget gate coupling (CIFG) did not significantly change the mean performance on any of the data sets
+	\item Removing the peephole connections (NP) also did not lead to significant changes
+	\item Adding FGR does not significantly change performance, but increases the number of parameters
+	\item For supervised learning on continuous real-valued data the input gate, output gate, and input activation function are crucial
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Impact of Hyperparameters}
+\begin{itemize}
+	\item The fANOVA framework for assessing hyperparameters importance is based on the observation that marginalizing over dimensions can be done efficiently in regression trees. This allows predicting the marginal error for one hyperparameter while averaging over all the others
+	\item The hyperparameter space is sampled at random
+	\item The learning rate is determined as being the most important hyperparameter. A practical advice would be to tune it on a small network and then usee it to train a large one
+	\item The hidden layer size is the second in order of importance. Larger networks perform better, but with diminishing returns.
+	\item The additive Gaussian noise on the inputs almost always hurt performance and slightly increases training times
+	\item Momentum affects neither performance nor training time in any significant way
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Analysis of Variance}
+\begin{figure}
+        {\includegraphics[width=0.5\textwidth]{variance_analysis.png}}
+        \caption{Pie charts showing which fraction of variance of the test set performance can be attributed to each of the hyperparameters}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Interaction of Hyperparameters}
+\begin{figure}	
+        {\includegraphics[width=0.55\textwidth]{timit_variance.png}}
+        \caption{Hyperparameter interaction on TIMIT}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Interaction of Hyperparameters}
+\begin{figure}
+        {\includegraphics[width=0.55\textwidth]{iam_variance.png}}
+        \caption{Hyperparameter interaction on IAM Online}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Interaction of Hyperparameters}
+\begin{figure}
+        {\includegraphics[width=0.55\textwidth]{jsb_variance.png}}
+        \caption{Hyperparameter interaction on JSB Chorales}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusions}
+\begin{itemize}
+	\item Vanilla LSTM performs reasonably well on a various data sets, none of the eight investigated modifications significantly improving the performance
+	\item Simpler LSTM variants like CIFG and NP might be attractive because of the reduction in the number of parameters
+	\item The forget gate and the output activation function are the most critical components of the LSTM block
+	\item The learning rate is the most important hyperparameter, followed by the network size
+	\item The analysis of hyperparameters interaction revealed no apparent structure, meaning that they can be treated as approximately independent
 \end{itemize}
 \end{frame}
 

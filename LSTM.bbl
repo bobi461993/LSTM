@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.9 $
+% $ biblatex bbl format version 2.8 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -16,7 +16,7 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global}
+\sortlist[entry]{nty/global/}
   \entry{DBLP:journals/corr/ChoMGBSB14}{article}{}
     \name{author}{6}{}{%
       {{hash=CK}{%
@@ -275,5 +275,5 @@
     \field{month}{06}
     \field{year}{2014}
   \endentry
-\enddatalist
+\endsortlist
 \endinput
