@@ -49,6 +49,14 @@
 \end{frame}
 
 \begin{frame}
+\frametitle{Backpropagation Through Time}
+\begin{figure}
+        {\includegraphics[width=0.9\textwidth]{bptt.png}}
+        \caption{Backpropagation through time}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
 \frametitle{Vanishing/Exploding Gradient}
 \begin{itemize}
 	\item The main algorithm for learning the weights of an RNN is called Backpropagation Through Time (BPTT)
@@ -238,6 +246,16 @@ every variant.
 	\item The learning rate is the most important hyperparameter, followed by the network size
 	\item The analysis of hyperparameters interaction revealed no apparent structure, meaning that they can be treated as approximately independent
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Technical Slides - Vanishing/Exploding Gradients Derivations}
+	\begin{align*}
+		\frac{\partial L}{\partial W} &= \sum_{t=0}^{S} \frac{\partial L^{(t)}}{\partial W}&\\
+		\frac{\partial L^{(t)}}{\partial W} &= \sum_{k=0}^{t} \frac{\partial L^{(t)}}{\partial 		o^{(t)}} \frac{\partial o^{(t)}}{\partial h^{(t)}} \frac{\partial h^{(t)}}{\partial h^{(k)}} \frac{\partial h^{(k)}}{\partial W}&\\
+		\frac{\partial h^{(t)}}{\partial h^{(k)}} &= \prod_{i=k+1}^{t} \frac{\partial h^{(i)}}{\partial h^{(i-1)}}&\\
+		\frac{\partial L^{(t)}}{\partial W} &= \sum_{k=0}^{t} \frac{\partial L^{(t)}}{\partial o^{(t)}} \frac{\partial o^{(t)}}{\partial h^{(t)}} \bigg( \prod_{j=k+1}^t \frac{\partial h^{(j)}}{\partial h^{(j-1)}} \bigg) \frac{\partial h^{(k)}}{\partial W}&
+	\end{align*}
 \end{frame}
 
 \end{document}
